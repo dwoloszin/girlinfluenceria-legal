@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok Authorization — Girl Influenceria Publisher</title>
+<style>body{font-family:Segoe UI,Arial,sans-serif;max-width:720px;margin:0 auto;
+padding:48px 24px;line-height:1.6;color:#1c1c28;background:#fafafa}
+code{display:block;background:#111;color:#7CFC90;padding:16px;border-radius:8px;
+word-break:break-all;font-size:1.05rem;margin:16px 0}
+button{padding:10px 18px;border:0;border-radius:8px;background:#e0407b;color:#fff;
+font-size:1rem;cursor:pointer}</style></head><body>
+<h1>TikTok authorization received</h1>
+<p>Copy the authorization code below and paste it into the publisher script:</p>
+<code id="code">(no code in URL)</code>
+<button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent)">Copy code</button>
+<p id="err" style="color:#b00"></p>
+<script>
+const p = new URLSearchParams(location.search);
+if (p.get('code')) document.getElementById('code').textContent = p.get('code');
+if (p.get('error')) document.getElementById('err').textContent =
+  'Error: ' + p.get('error') + ' — ' + (p.get('error_description')||'');
+</script></body></html>
